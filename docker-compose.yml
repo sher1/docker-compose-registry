@@ -10,7 +10,8 @@ services:
     volumes:
       - ./config/config.yml:/etc/docker/registry/config.yml:ro
       - ./data:/var/lib/registry:rw
-  #environment:
-    #- "STANDALONE=true"
-    #- "MIRROR_SOURCE=https://registry-1.docker.io"
-    #- "MIRROR_SOURCE_INDEX=https://index.docker.io"
+    environment:
+      - REGISTRY_PROXY_REMOTEURL="https://registry-1.docker.io"
+      #- "STANDALONE=true"
+      #- "MIRROR_SOURCE=https://registry-1.docker.io"
+      #- "MIRROR_SOURCE_INDEX=https://index.docker.io"
